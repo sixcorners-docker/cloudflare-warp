@@ -5,5 +5,6 @@ RUN tar xzf *.tgz
 FROM debian
 COPY --from=0 cloudflare-warp /usr/local/bin/
 COPY docker-entrypoint.sh /usr/local/bin/
+USER daemon
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["cloudflare-warp"]
